@@ -47,6 +47,12 @@ const pipeline = require(dirs.core + 'pipeline');
 const config = util.getConfig();
 const mode = util.gekkoMode();
 
+console.log("dirs:", dirs);
+console.log("pipeline:", pipeline);
+console.log("config:", config);
+console.log("mode:", mode);
+console.log("util:", util);
+
 if(
   config.trader.enabled &&
   !config['I understand that Gekko only automates MY OWN trading strategies']

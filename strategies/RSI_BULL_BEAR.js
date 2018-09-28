@@ -23,14 +23,12 @@ var strat = {
         
         // debug? set to flase to disable all logging (improves performance)
         this.debug = true;
-
-	console.log("setting", this.settings.SMA_long);
         
         // add indicators
         this.addTulipIndicator('maSlow', 'sma', { optInTimePeriod: this.settings.SMA_long });
         this.addTulipIndicator('maFast', 'sma', { optInTimePeriod: this.settings.SMA_short });
-        this.addTulipIndicator('BULL_RSI', 'rsi', { optInTimePeriod: this.settings.BULL_rsi });
-        this.addTulipIndicator('BEAR_RSI', 'rsi', { optInTimePeriod: this.settings.BEAR_rsi });
+        this.addTulipIndicator('BULL_RSI', 'rsi', { optInTimePeriod: this.settings.BULL_RSI });
+        this.addTulipIndicator('BEAR_RSI', 'rsi', { optInTimePeriod: this.settings.BEAR_RSI });
         
         // debug stuff
         this.startTime = new Date();
