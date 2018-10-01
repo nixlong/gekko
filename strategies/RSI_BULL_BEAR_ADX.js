@@ -152,12 +152,12 @@ var strat = {
 		else
 		{
 			rsi = ind.BULL_RSI.result;
-			let rsi_hi = this.settings.BULL.high,
-				rsi_low = this.settings.BULL.low;
+			let rsi_hi = this.settings.BULL_high,
+				rsi_low = this.settings.BULL_low;
 			
 			// ADX trend strength?
-			if( adx > this.settings.ADX.high ) rsi_hi = rsi_hi + this.BULL_MOD_high;		
-			else if( adx < this.settings.ADX.low ) rsi_low = rsi_low + this.BULL_MOD_low;
+			if( adx > this.settings.ADX_high ) rsi_hi = rsi_hi + this.BULL_MOD_high;		
+			else if( adx < this.settings.ADX_low ) rsi_low = rsi_low + this.BULL_MOD_low;
 				
 			if( rsi > rsi_hi ) this.short();
 			else if( rsi < rsi_low )  this.long();
