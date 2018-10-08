@@ -4,6 +4,8 @@ var RMA = require('./RMA.js');
 var Indicator = function(config) {
   this.input = 'candle';
 
+  console.log('config:', config,config.ADXLength,config.DILength);
+
   this.ADX = new RMA(config.ADXLength);
   this.ATR = new RMA(config.DILength);
   this.DIM = new RMA(config.DILength);

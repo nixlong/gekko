@@ -18,7 +18,7 @@ config.watch = {
   // see https://gekko.wizb.it/docs/introduction/supported_exchanges.html
   exchange: 'binance',
   currency: 'USDT',
-  asset: 'EOS',
+  asset: 'BTC',
 
   // You can set your own tickrate (refresh rate).
   // If you don't set it, the defaults are 2 sec for
@@ -33,83 +33,102 @@ config.watch = {
 config.tradingAdvisor = {
   enabled: true,
   method: 'RSI_BULL_BEAR_ADX',
+//  method: 'RSI_Bull_Bear_Adx_Stop',
   //method: 'TMA',
-  candleSize: 60,
+  candleSize: 5,
   historySize: 10,
 }
 
-/*
-config.SMA = {
-		long: 1000,
-		short: 50
-	}
-config.BULL = {
-		rsi: 10,
-		high: 80,
-		low: 60,
-		mod_high: 5,
-		mod_low: -5
-	}
-config.BEAR = {
-		rsi : 15,
-		high : 50,
-		low : 20,
-		mod_high : 15,
-		mod_low  : -5
-	}
-config.ADX = {
-		adx: 3,
-		high: 70,
-		low: 50
-	}
-*/
+config.RSI_Bull_Bear_Adx_Stop= {
+  // SMA Trends
+  SMA_long : 1000,
+  SMA_short : 50,
+
+  // BULL
+  BULL_RSI : 10,
+  BULL_RSI_high : 80,
+  BULL_RSI_low : 60,
+
+  // BEAR
+  BEAR_RSI : 15,
+  BEAR_RSI_high : 50,
+  BEAR_RSI_low : 20,
+
+  // MODIFY RSI (depending on ADX)
+  BULL_MOD_high : 5,
+  BULL_MOD_low : -5,
+  BEAR_MOD_high : 15,
+  BEAR_MOD_low : -5,
+
+  // ADX
+  ADX_adx : 3,
+  ADX_high : 70,
+  ADX_low : 50,
+
+  // Stop Loss
+  Stop_Loss_Percent : 50
+}
+
+
+config.RSI_BULL_BEAR_ADX_PINGPONG= {
+  // SMA Trends
+  SMA_long : 21,
+  SMA_short : 5,
+
+  // BULL
+  BULL_RSI : 10,
+  BULL_RSI_high : 80,
+  BULL_RSI_low : 60,
+
+  // BEAR
+  BEAR_RSI : 15,
+  BEAR_RSI_high : 50,
+  BEAR_RSI_low : 20,
+
+  // MODIFY RSI (depending on ADX)
+  BULL_MOD_high : 5,
+  BULL_MOD_low : -5,
+  BEAR_MOD_high : 15,
+  BEAR_MOD_low : -5,
+
+  // ADX
+  ADX_adx : 3,
+  ADX_high : 70,
+  ADX_low : 50,
+
+  // Stop Loss
+  Stop_Loss_Percent : 30,
+
+  PINGPONG_GAINS_PERCENTAGE : 10
+}
+
 
 config.RSI_BULL_BEAR_ADX= {
-/*	
-	SMA: {
-		long: 1000,
-		short: 50
-	},
-	BULL: {
-		rsi: 10,
-		high: 80,
-		low: 60,
-		mod_high: 5,
-		mod_low: -5
-	},
-	BEAR: {
-		rsi : 15,
-		high : 50,
-		low : 20,
-		mod_high : 15,
-		mod_low  : -5
-	},
-	ADX: {
-		adx: 3,
-		high: 70,
-		low: 50
-	}
-*/
-	SMA_long: 1000,
-	SMA_short: 50,
-	
-	BULL_rsi: 10,
-	BULL_high: 80,
-	BULL_low: 60,
-	BULL_mod_high: 5,
-	BULL_mod_low: -5,
-	
-	
-	BEAR_rsi : 15,
-	BEAR_high : 50,
-	BEAR_low : 20,
-	BEAR_mod_high : 15,
-	BEAR_mod_low  : -5,
-	
-	
-	ADX_adx: 3,
-	ADX_high: 70,
-	ADX_low: 50
+
+  // SMA Trends
+  SMA_long : 21,
+  SMA_short : 5,
+
+  // BULL
+  BULL_RSI : 10,
+  BULL_RSI_high : 80,
+  BULL_RSI_low : 60,
+
+  // BEAR
+  BEAR_RSI : 15,
+  BEAR_RSI_high : 50,
+  BEAR_RSI_low : 20,
+
+  // MODIFY RSI (depending on ADX)
+  BULL_MOD_high : 5,
+  BULL_MOD_low : -5,
+  BEAR_MOD_high : 15,
+  BEAR_MOD_low : -5,
+
+  // ADX
+  ADX_adx : 3,
+  ADX_high : 70,
+  ADX_low : 50,
 
 }
 
@@ -403,11 +422,11 @@ config.mongodb = {
 // @link: https://gekko.wizb.it/docs/commandline/backtesting.html
 
 config.backtest = {
-  daterange: 'scan',
-// daterange: {
-//   from: "2018-03-01",
-//   to: "2018-04-28"
-//},
+ // daterange: 'scan',
+ daterange: {
+   from: "2018-08-01",
+   to: "2018-09-18"
+},
   batchSize: 50
 }
 
@@ -418,7 +437,7 @@ config.backtest = {
 config.importer = {
   daterange: {
     // NOTE: these dates are in UTC
-    from: "2018-08-01 00:00:00",
+    from: "2018-09-01 00:00:00",
     to: "2018-09-20 00:00:00"
   }
 }

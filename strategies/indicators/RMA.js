@@ -1,5 +1,6 @@
 
 var Indicator = function(weight) {
+  console.log('rma weight:', weight);
   this.input = 'price';
   this.weight = weight;
   this.result = false;

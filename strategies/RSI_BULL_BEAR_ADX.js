@@ -43,17 +43,17 @@ var strat = {
 		this.addIndicator('maFast', 'SMA', this.settings.SMA_short );
 		
 		// RSI
-		this.addIndicator('BULL_RSI', 'RSI', { interval: this.settings.BULL_rsi });
-		this.addIndicator('BEAR_RSI', 'RSI', { interval: this.settings.BEAR_rsi });
+		this.addIndicator('BULL_RSI', 'RSI', { interval: this.settings.BULL_RSI });
+		this.addIndicator('BEAR_RSI', 'RSI', { interval: this.settings.BEAR_RSI });
 		
 		// ADX
 		this.addIndicator('ADX', 'ADX', this.settings.ADX_adx );
 		
 		// MOD (RSI modifiers)
-		this.BULL_MOD_high = this.settings.BULL_mod_high;
-		this.BULL_MOD_low = this.settings.BULL_mod_low;
-		this.BEAR_MOD_high = this.settings.BEAR_mod_high;
-		this.BEAR_MOD_low = this.settings.BEAR_mod_low;
+		this.BULL_MOD_high = this.settings.BULL_MOD_high;
+		this.BULL_MOD_low = this.settings.BULL_MOD_low;
+		this.BEAR_MOD_high = this.settings.BEAR_MOD_high;
+		this.BEAR_MOD_low = this.settings.BEAR_MOD_low;
 		
 		
 		// debug stuff
@@ -135,12 +135,12 @@ var strat = {
 		if( maFast < maSlow )
 		{
 			rsi = ind.BEAR_RSI.result;
-			let rsi_hi = this.settings.BEAR.high,
-				rsi_low = this.settings.BEAR.low;
+			let rsi_hi = this.settings.BEAR_RSI_high,
+				rsi_low = this.settings.BEAR_RSI_low;
 			
 			// ADX trend strength?
-			if( adx > this.settings.ADX.high ) rsi_hi = rsi_hi + this.BEAR_MOD_high;
-			else if( adx < this.settings.ADX.low ) rsi_low = rsi_low + this.BEAR_MOD_low;
+			if( adx > this.settings.ADX_high ) rsi_hi = rsi_hi + this.BEAR_MOD_high;
+			else if( adx < this.settings.ADX_low ) rsi_low = rsi_low + this.BEAR_MOD_low;
 				
 			if( rsi > rsi_hi ) this.short();
 			else if( rsi < rsi_low ) this.long();
@@ -152,8 +152,8 @@ var strat = {
 		else
 		{
 			rsi = ind.BULL_RSI.result;
-			let rsi_hi = this.settings.BULL_high,
-				rsi_low = this.settings.BULL_low;
+			let rsi_hi = this.settings.BULL_RSI_high,
+				rsi_low = this.settings.BULL_RSI_low;
 			
 			// ADX trend strength?
 			if( adx > this.settings.ADX_high ) rsi_hi = rsi_hi + this.BULL_MOD_high;		
