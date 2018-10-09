@@ -47,7 +47,7 @@ var strat = {
 		this.addIndicator('BEAR_RSI', 'RSI', { interval: this.settings.BEAR_RSI });
 		
 		// ADX
-		this.addIndicator('ADX', 'ADX', this.settings.ADX_adx );
+		this.addIndicator('ADX', 'ADX', {DILength: this.settings.ADX_di , ADXLength: this.settings.ADX_adx });
 		
 		// MOD (RSI modifiers)
 		this.BULL_MOD_high = this.settings.BULL_MOD_high;

@@ -16,9 +16,9 @@ config.debug = true; // for additional logging / debugging
 config.watch = {
 
   // see https://gekko.wizb.it/docs/introduction/supported_exchanges.html
-  exchange: 'binance',
-  currency: 'USDT',
-  asset: 'BTC',
+  exchange: 'bitfinex',
+  currency: 'USD',
+  asset: 'EOS',
 
   // You can set your own tickrate (refresh rate).
   // If you don't set it, the defaults are 2 sec for
@@ -35,8 +35,8 @@ config.tradingAdvisor = {
   method: 'RSI_BULL_BEAR_ADX',
 //  method: 'RSI_Bull_Bear_Adx_Stop',
   //method: 'TMA',
-  candleSize: 5,
-  historySize: 10,
+  candleSize: 60*2,
+  historySize: 1000,
 }
 
 config.RSI_Bull_Bear_Adx_Stop= {
@@ -106,8 +106,8 @@ config.RSI_BULL_BEAR_ADX_PINGPONG= {
 config.RSI_BULL_BEAR_ADX= {
 
   // SMA Trends
-  SMA_long : 21,
-  SMA_short : 5,
+  SMA_long : 1000,
+  SMA_short : 50,
 
   // BULL
   BULL_RSI : 10,
@@ -126,7 +126,8 @@ config.RSI_BULL_BEAR_ADX= {
   BEAR_MOD_low : -5,
 
   // ADX
-  ADX_adx : 3,
+  ADX_adx : 6,
+  ADX_di : 14,
   ADX_high : 70,
   ADX_low : 50,
 
@@ -424,8 +425,8 @@ config.mongodb = {
 config.backtest = {
  // daterange: 'scan',
  daterange: {
-   from: "2018-08-01",
-   to: "2018-09-18"
+   from: "2017-07-02",
+   to: "2018-08-01"
 },
   batchSize: 50
 }
